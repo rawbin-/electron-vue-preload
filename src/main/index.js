@@ -1,7 +1,6 @@
 'use strict'
 
 import { app, BrowserWindow } from 'electron'
-import path from 'path'
 
 /**
  * Set `__static` path to static files in production
@@ -21,15 +20,15 @@ function createWindow () {
    * Initial window options
    */
   // const preloadBase = process.env.NODE_ENV === 'production' ? path.join(app.getAppPath(), 'dist/electron/') : path.join(process.cwd(), 'src/common/api/')
-  const preloadBase = path.join(app.getAppPath(), 'dist/electron/')
-  const preloadPath = path.join(preloadBase, 'renderer-preload.js')
+  const preloadPath = 'dist/electron/renderer-preload.js'
   console.log('preloadPath:', preloadPath)
   mainWindow = new BrowserWindow({
     height: 563,
     useContentSize: true,
     width: 1000,
     webPreferences: {
-      preload: preloadPath
+      preload: preloadPath,
+      nodeIntegration: true
     }
   })
 
