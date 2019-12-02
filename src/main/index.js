@@ -20,7 +20,8 @@ function createWindow () {
   /**
    * Initial window options
    */
-  const preloadBase = process.env.NODE_ENV === 'production' ? path.join(app.getAppPath(), 'dist/electron/') : path.join(process.cwd(), 'src/common/api/')
+  // const preloadBase = process.env.NODE_ENV === 'production' ? path.join(app.getAppPath(), 'dist/electron/') : path.join(process.cwd(), 'src/common/api/')
+  const preloadBase = path.join(app.getAppPath(), 'dist/electron/')
   const preloadPath = path.join(preloadBase, 'renderer-preload.js')
   console.log('preloadPath:', preloadPath)
   mainWindow = new BrowserWindow({
